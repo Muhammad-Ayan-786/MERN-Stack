@@ -1,11 +1,16 @@
-import { Router, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import CreatePost from "./pages/CreatePost";
+import Feed from "./pages/Feed";
 
 const App = () => {
   return (
-    <div className='bg-gray-950 w-full h-screen'>
-      <h1 className='text-5xl pt-20 italic underline text-white text-center'>
-        Creating a Post Application with BackEnd & FrontEnd
-      </h1>
+    <div className='w-full h-screen'>
+
+      <Routes>
+        <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/feed" element={<Feed />} />
+      </Routes>
+
     </div>
   )
 }
