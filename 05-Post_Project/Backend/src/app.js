@@ -39,4 +39,32 @@ app.get('/posts', async (req, res) => {
   })
 })
 
+app.delete('/remove-post/:id', async (req, res) => {
+  const id = req.params.id
+
+  await postModel.findOneAndDelete({
+    _id: id
+  })
+
+  res.status(200).json({
+    message: 'Post Deleted Successfully'
+  })
+})
+
+app.patch('/update-note/:id', upload.single('image'), async (req, res) => {
+  const id = req.params.id
+  const caption = req.body.caption
+
+  const image = await uploadFile(req.file.buffer)
+
+  await postModel.findOneAndUpdate(
+    { _id: id },
+    { caption: caption, image: image.url }
+  )
+
+  res.status(200).json({
+    message: "Note Updated Successfully"
+  })
+})
+
 module.exports = app
