@@ -38,6 +38,7 @@ const SignIn = () => {
 
       return responce;
     } catch (err) {
+      alert('Account Already Exist !')
       console.log("Error", err);
     }
   }

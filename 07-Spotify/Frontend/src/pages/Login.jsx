@@ -9,7 +9,6 @@ const Login = () => {
 
   const [user, setUser] = useState({
     username: '',
-    email: '',
     password: '',
     role: 'user'
   })
@@ -23,22 +22,23 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const responce = await axios.post('http://localhost:3000/api/auth/register', user)
+      const responce = await axios.post('http://localhost:3000/api/auth/login', user)
 
       setUser({
         username: '',
-        email: '',
         password: '',
         role: 'user'
       });
 
       if (responce.status === 201) {
-        navigate('/api/auth/login')
+        navigate('/')
       }
 
       return responce;
+
     } catch (err) {
       console.log("Error", err);
+      alert('You are passing Invalid credentials')
     }
   }
 
@@ -57,7 +57,7 @@ const Login = () => {
 
           {/* Username Input */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="username" className=" sm:text-lg text-gray-300 text-shadow-green-400 text-shadow-xs">Username Or Email</label>
+            <label htmlFor="username" className=" sm:text-lg text-gray-300 text-shadow-green-400 text-shadow-xs">Username</label>
             <div className="flex gap-2 items-center relative">
               <User className="absolute top-2.5 left-2 text-green-500 text-shadow-xs" size={20} />
               <input
