@@ -30,7 +30,7 @@ const Login = () => {
         role: 'user'
       });
 
-      if (responce.status === 201) {
+      if (responce.status === 200) {
         navigate('/')
       }
 
