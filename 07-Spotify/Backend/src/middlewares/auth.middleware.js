@@ -45,6 +45,7 @@ async function authUser(req, res, next) {
 
   // Check if user is authenticated
   const token = req.cookies.token
+  console.log(token);
 
   // If user is not authenticated
   if (!token) {

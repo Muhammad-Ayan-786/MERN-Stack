@@ -39,7 +39,11 @@ async function registerUser(req, res) {
   }, process.env.JWT_SECRET)
 
   // Store token in cookie
-  res.cookie('token', token)
+  res.cookie('token', token, {
+    httpOnly: true,
+    secure: false,
+    sameSite: 'lax'
+  })
 
   // Send response
   res.status(201).json({
@@ -87,7 +91,11 @@ async function loginUser(req, res) {
   }, process.env.JWT_SECRET)
 
   // Store token in cookie
-  res.cookie('token', token)
+  res.cookie('token', token, {
+    httpOnly: true,
+    secure: false,  // true in production
+    sameSite: 'lax'
+  })
 
   // Send response
   res.status(200).json({

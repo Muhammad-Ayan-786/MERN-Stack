@@ -23,7 +23,9 @@ const SignIn = () => {
     e.preventDefault()
 
     try {
-      const responce = await axios.post('http://localhost:3000/api/auth/register', user)
+      const responce = await axios.post('http://localhost:3000/api/auth/register', user, {
+        withCredentials: true
+      })
 
       setUser({
         username: '',

@@ -22,7 +22,9 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const responce = await axios.post('http://localhost:3000/api/auth/login', user)
+      const responce = await axios.post('http://localhost:3000/api/auth/login', user, {
+        withCredentials: true
+      })
 
       setUser({
         username: '',
@@ -31,7 +33,7 @@ const Login = () => {
       });
 
       if (responce.status === 200) {
-        navigate('/')
+        navigate('/user')
       }
 
       return responce;

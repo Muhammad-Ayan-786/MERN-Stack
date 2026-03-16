@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit"
-import registerAPIReducer from "./features/registerAPI";
+import musicReducer from "./features/musicAPI";
 
 export const store = configureStore({
   reducer: {
-    registerAPI: registerAPIReducer
+    music: musicReducer
   }
 })
