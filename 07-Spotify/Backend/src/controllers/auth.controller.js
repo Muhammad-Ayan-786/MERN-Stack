@@ -20,7 +20,6 @@ async function registerUser(req, res) {
       message: "User already exists"
     })
   }
-
   // Hash password
   const hash = await bcrypt.hash(password, 10);
 
@@ -38,12 +37,8 @@ async function registerUser(req, res) {
     role: user.role
   }, process.env.JWT_SECRET)
 
-  // Store token in cookie
-  res.cookie('token', token, {
-    httpOnly: true,
-    secure: false,
-    sameSite: 'lax'
-  })
+  // Set token in Headers
+  res.header('Authorization', `Bearer ${token}`)
 
   // Send response
   res.status(201).json({
@@ -64,7 +59,9 @@ async function loginUser(req, res) {
 
   // Check if user exists
   const user = await userModel.findOne({
-    $or: [{ username }, { email }]
+    $or: [
+      { username },
+      { email }]
   })
 
   // If user doesn't exist
@@ -90,12 +87,8 @@ async function loginUser(req, res) {
     role: user.role
   }, process.env.JWT_SECRET)
 
-  // Store token in cookie
-  res.cookie('token', token, {
-    httpOnly: true,
-    secure: false,  // true in production
-    sameSite: 'lax'
-  })
+  // Store token in Headers
+  res.header('Authorization', `Bearer ${token}`);
 
   // Send response
   res.status(200).json({
@@ -111,7 +104,6 @@ async function loginUser(req, res) {
 
 // <---------- Logout User ---------->
 async function logoutUser(req, res) {
-  res.clearCookie('token')
   res.status(200).json({
     message: "User logout successfully"
   })

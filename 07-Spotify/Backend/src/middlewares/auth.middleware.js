@@ -4,8 +4,8 @@ const jwt = require('jsonwebtoken');
 async function authArtist(req, res, next) {
 
   // Check if user is authenticated
-  const token = req.cookies.token
-
+  const authHeader = req.headers.authorization
+  const token = authHeader && authHeader.split(' ')[1]
 
   // If user is not authenticated
   if (!token) {
@@ -44,7 +44,8 @@ async function authArtist(req, res, next) {
 async function authUser(req, res, next) {
 
   // Check if user is authenticated
-  const token = req.cookies.token
+  const authHeader = req.headers.authorization
+  const token = authHeader && authHeader.split(' ')[1]
 
   // If user is not authenticated
   if (!token) {

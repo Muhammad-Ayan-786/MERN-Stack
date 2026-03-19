@@ -34,6 +34,7 @@ const Login = () => {
 
       if (responce.status === 200) {
         navigate('/user')
+        // how to access cookie in frontend
       }
 
       return responce;
