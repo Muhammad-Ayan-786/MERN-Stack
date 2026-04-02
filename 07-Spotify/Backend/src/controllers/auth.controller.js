@@ -31,16 +31,6 @@ async function registerUser(req, res) {
     role
   })
 
-  // Create token
-  const token = jwt.sign({
-    id: user._id,
-    role: user.role
-  }, process.env.JWT_SECRET)
-
-  // Set token in Headers
-  res.header('Authorization', `Bearer ${token}`)
-
-  // Send response
   res.status(201).json({
     message: "User register successfully",
     user: {

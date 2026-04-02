@@ -17,6 +17,13 @@ button:active {
   scale: 0.96;
 }
 
+.DisabledBtn {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: grayscale(25%);
+}
+
 /* Hide scrollbar while keeping scroll functionality */
 .scrollbar-hide {
   -ms-overflow-style: none;
@@ -25,4 +32,36 @@ button:active {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Hide on mobile, subtle on desktop */
+.scrollbar-adaptive {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(163, 230, 53, 0.45) rgba(255, 255, 255, 0.06);
+}
+
+.scrollbar-adaptive::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-adaptive::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+.scrollbar-adaptive::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(190, 242, 100, 0.7), rgba(34, 197, 94, 0.55));
+  border-radius: 999px;
+}
+
+@media (max-width: 639px) {
+  .scrollbar-adaptive {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-adaptive::-webkit-scrollbar {
+    display: none;
+  }
 }

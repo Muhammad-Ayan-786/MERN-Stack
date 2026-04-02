@@ -20,7 +20,7 @@ router.post('/album', authMiddleware.authArtist, musicController.createAlbum);
 
 /* <------------ Get musics and albums -----------> */
 
-// router.get('/', musicController.getAllMusics);
+// Get all musics
 router.get('/', authMiddleware.authUser, musicController.getAllMusics);
 
 // Get all albums

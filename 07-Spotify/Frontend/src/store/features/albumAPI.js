@@ -3,7 +3,11 @@ import axios from "axios";
 
 export const fetchAlbum = createAsyncThunk('Album', async () => {
   try {
-    const responce = await axios.get('http://localhost:3000/api/music/albums', { withCredentials: true });
+    const responce = await axios.get('http://localhost:3000/api/music/albums', {
+      headers: {
+        'Authorization': localStorage.getItem('token')
+      }
+    });
     return responce.data.albums
   } catch (error) {
     console.error('Error fetching data:', error);
