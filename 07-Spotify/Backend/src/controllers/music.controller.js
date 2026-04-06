@@ -5,7 +5,6 @@ const albumModel = require('../models/album.model');
 
 // <---------- Create Music ---------->
 async function createMusic(req, res) {
-
   // Create music
   const { title } = req.body
   const file = req.file
@@ -17,7 +16,7 @@ async function createMusic(req, res) {
   const music = await musicModel.create({
     title,
     uri: result.url,
-    artist: req.user._id
+    artist: req.user.id
   })
 
   // Return music
@@ -30,7 +29,6 @@ async function createMusic(req, res) {
       artist: music.artist
     }
   })
-
 }
 
 // <---------- Create Album ---------->
@@ -42,7 +40,7 @@ async function createAlbum(req, res) {
   // Create album
   const album = await albumModel.create({
     title,
-    artist: req.user._id,
+    artist: req.user.id,
     musics: musics
   })
 
@@ -66,7 +64,7 @@ async function getAllMusics(req, res) {
   const musics = await musicModel
     .find()
     .skip(0)
-    .limit(3)
+    // .limit(3) // Set limits OR TODO: Add pagination with skip and limit
     .populate('artist', "username email");
 
   // Return musics

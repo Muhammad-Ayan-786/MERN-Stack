@@ -2,15 +2,15 @@ import { Infinity, Pause, Play } from "lucide-react"
 
 const Songs = ({ musicsObj, currentSong, playSongFunc }) => {
   return (
-    <div className="songs flex min-h-[300px] flex-col rounded-2xl border border-white/10 bg-white/4 p-3 backdrop-blur-sm sm:p-4 lg:min-h-0">
+    <div className="songs flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/4 p-3 backdrop-blur-sm sm:p-4">
       <h2 className="mb-3 shrink-0 text-sm font-semibold uppercase tracking-wider text-zinc-400">
         Songs
       </h2>
-      <div className="scrollbar-adaptive flex flex-1 flex-col gap-2.5 pr-1 lg:min-h-0 lg:overflow-y-auto lg:overscroll-contain">
+      <div className="scrollbar-hide flex min-h-0 flex-1 flex-col gap-2.5 pr-1 overflow-y-auto overscroll-contain">
         {
           musicsObj.isLoading
             ?
-            <div className="flex min-h-[120px] flex-1 items-center justify-center py-12">
+            <div className="flex min-h-30 flex-1 items-center justify-center py-12">
               <Infinity size={20} className="h-9 w-9 cursor-pointer animate-spin rounded-full bg-lime-500/20 p-2 text-lime-300" />
             </div>
             :

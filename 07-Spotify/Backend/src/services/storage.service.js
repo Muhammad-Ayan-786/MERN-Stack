@@ -7,7 +7,7 @@ const client = new ImageKit({
 async function uploadFile(file) {
   const result = await client.files.upload({
     file,
-    fileName: 'music_' + Date.now(),
+    fileName: 'music' + Date.now(),
     folder: '07-Spotify/music',
   })
 

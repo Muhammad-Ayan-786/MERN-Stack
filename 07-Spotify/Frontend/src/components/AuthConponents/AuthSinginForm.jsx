@@ -10,7 +10,7 @@ const AuthSinginForm = ({ formSubmit, twoWaysBinding, user }) => {
         <div className="relative flex items-center">
           <User className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-green-400" size={18} />
           <input
-            className="h-12 w-full rounded-xl border border-gray-700 bg-gray-800/80 pl-10 pr-4 text-base text-gray-100 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500/30"
+            className="h-12 w-full rounded-xl border border-white/15 bg-white/5 pl-10 pr-4 text-base text-gray-100 placeholder:text-gray-400/70 outline-none transition hover:border-white/25 focus:border-green-400/60 focus:ring-2 focus:ring-green-500/25"
             required
             type="text"
             id="username"
@@ -22,13 +22,14 @@ const AuthSinginForm = ({ formSubmit, twoWaysBinding, user }) => {
           />
         </div>
       </div>
+
       {/* Email Input */}
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className="text-sm font-medium text-gray-300 sm:text-base">Email</label>
         <div className="relative flex items-center">
           <AtSign className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-green-400" size={18} />
           <input
-            className="h-12 w-full rounded-xl border border-gray-700 bg-gray-800/80 pl-10 pr-4 text-base text-gray-100 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500/30"
+            className="h-12 w-full rounded-xl border border-white/15 bg-white/5 pl-10 pr-4 text-base text-gray-100 placeholder:text-gray-400/70 outline-none transition hover:border-white/25 focus:border-green-400/60 focus:ring-2 focus:ring-green-500/25"
             required
             type="email"
             id="email"
@@ -40,13 +41,14 @@ const AuthSinginForm = ({ formSubmit, twoWaysBinding, user }) => {
           />
         </div>
       </div>
+
       {/* Password Input */}
       <div className="flex flex-col gap-2">
         <label htmlFor="password" className="text-sm font-medium text-gray-300 sm:text-base">Password</label>
         <div className="relative flex items-center">
           <Key className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-green-400" size={18} />
           <input
-            className="h-12 w-full rounded-xl border border-gray-700 bg-gray-800/80 pl-10 pr-4 text-base text-gray-100 outline-none transition focus:border-green-500 focus:ring-2 focus:ring-green-500/30"
+            className="h-12 w-full rounded-xl border border-white/15 bg-white/5 pl-10 pr-4 text-base text-gray-100 placeholder:text-gray-400/70 outline-none transition hover:border-white/25 focus:border-green-400/60 focus:ring-2 focus:ring-green-500/25"
             required
             type="password"
             id="password"

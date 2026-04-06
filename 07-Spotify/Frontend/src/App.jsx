@@ -1,16 +1,22 @@
 import { Routes, Route } from 'react-router-dom';
+
+// Default Routes
 import SignIn from './pages/SignIn';
 import Login from './pages/Login';
 import WelcomePage from './pages/WelcomePage';
+
+// User's Routes
 import UserPage from './pages/UserPage';
 import UserHomePage from './pages/UserHomePage';
-import UserLibraryPage from './pages/UserLibraryPage';
+import UserTrackPage from './pages/UserTrackPage';
+
+// Artist's Routes
 import ArtistPage from './pages/ArtistPage';
 import ArtistHomePage from './pages/ArtistHomePage';
-import ArtistUploadPage from './pages/ArtistUploadPage';
-import ArtistAlbumPage from './pages/ArtistAlbumPage';
 import ArtistSongPage from './pages/ArtistSongPage';
-import ArtistLiberaryPage from './pages/ArtistLiberaryPage';
+import ArtistUploadPage from './pages/ArtistUploadPage';
+import ArtistMyAlbumPage from './pages/ArtistMyAlbumPage';
+import ArtistMySongPage from './pages/ArtistMySongPage';
 
 const App = () => {
   return (
@@ -24,20 +30,19 @@ const App = () => {
         {/* User Routes */}
         <Route path='/user' element={<UserPage />}>
           <Route path='/user/home' element={<UserHomePage />} />
-          <Route path='/user/library' element={<UserLibraryPage />} />
+          <Route path='/user/track' element={<UserTrackPage />} />
         </Route>
 
         {/* Artist Routes */}
         <Route path='/artist' element={<ArtistPage />}>
           <Route path='/artist/home' element={<ArtistHomePage />} />
-          <Route path='/artist/liberary' element={<ArtistLiberaryPage />} />
-          <Route path='/artist/upload' element={<ArtistUploadPage />} />
-          <Route path='/artist/album' element={<ArtistAlbumPage />} />
           <Route path='/artist/song' element={<ArtistSongPage />} />
+          <Route path='/artist/upload' element={<ArtistUploadPage />} />
+          <Route path='/artist/my-album' element={<ArtistMyAlbumPage />} />
+          <Route path='/artist/my-song' element={<ArtistMySongPage />} />
         </Route>
 
       </Routes>
-
     </>
   )
 }

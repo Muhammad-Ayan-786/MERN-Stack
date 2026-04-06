@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchMusic = createAsyncThunk('Music', async () => {
   try {
-    const responce = await axios.get('http://localhost:3000/api/music/', {
+    const responce = await axios.get('http://localhost:3000/api/music', {
       headers: {
         'Authorization': localStorage.getItem('token')
       }
